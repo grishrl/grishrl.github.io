@@ -35,7 +35,7 @@ angular.module('uctc').controller('rowTemplateController',function(constants, ca
 
   $scope.calculate=function(){
     console.log('calc Func');
-    console.log($scope.model.number);
-    $scope.returnedCalcs=caLogic.requiredForUnit($scope.model.unit, $scope.model.number);
+    console.log($scope.model);
+    $scope.returnedCalcs=caLogic.requiredForUnit($scope.model);
   };
 });

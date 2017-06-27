@@ -11,24 +11,32 @@ angular.module('uctc').factory('caLogic', function(constants){
     };
 
     //takes unit, number of facilities, returns villager number/type required
-    caLogic.requiredForUnit = function(unit, noFac){
-      if(unit){
+    caLogic.requiredForUnit = function(model){
+      if(model.unit){
         //console.log(noFac);
-        if(!noFac){
-          noFac=1;
+        if(!model.number){
+          model.number=1;
         }
-        var unitCosts = this.returnUnitData(unit);
+        var unitCosts = this.returnUnitData(model.unit);
         //resourceCost/(timeToBuild*resourceCollectionRate)
 
         var villPerResource = {"W":0,"F":0,"G":0};
         angular.forEach(villPerResource, function(val,key){
           val = (unitCosts[key]/(unitCosts.Time*constants.collectionRate[key]));
           val = Math.ceil(val);
-          val = val*noFac;
+          val = val*model.number;
+          // if()
           //some more Math
           villPerResource[key]=val;
         });
-        villPerResource.Unit = unit;
+        if(model.unit=="Villager"){
+          villPerResource["W"]+=3*model.number;
+        }
+        if(model.vil&&model.unit!="Villager"){
+          villPerResource["F"]+=7;
+          villPerResource["W"]+=3;
+        }
+        villPerResource.Unit = model.unit;
         return villPerResource;
       }
 
