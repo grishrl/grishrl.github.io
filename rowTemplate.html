@@ -1,0 +1,38 @@
+<td>
+  <!--Unit-->
+  <select>
+    <option ng-repeat="unit in unitList" value="unit">{{unit}}</option>
+  </select>
+</td>
+<!--Number of Facilities-->
+<td>
+  <select>
+    <option ng-repeat="num in numbers" value="num">{{num}}</option>
+  </select>
+
+</td>
+<!--Villager Production-->
+
+<td>
+  <select>
+    <option value="true">Yes</option>
+    <option value="false">No</option>
+  </select>
+
+</td>
+<!-- number required-->
+<td>
+  <!--wood-->
+  {{wood}}
+</td>
+<td>
+  <!--food-->
+  {{food}}
+</td>
+<td>
+  <!--gold-->
+  {{gold}}
+</td>
+<td>
+  <button ng-click="addRow()">Add Row</button>
+</td>

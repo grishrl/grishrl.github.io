@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Age of Empires Unit Calculator</title>
+  </head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="app.js"></script>
+  <script src="calculations.js"></script>
+  <script src="constants.js"></script>
+  <script src="rowTemplate.js"></script>
+
+
+  <body>
+    <div class="container" ng-app='uctc'>
+      <div class="row" ng-controller="homeCtrl">
+        <table class="table-striped">
+          <thead>
+            <td>
+              Unit
+            </td>
+            <td>
+              Number of facilities
+            </td>
+            <td>
+              Villager Production?
+            </td>
+            <td>
+              Wood
+            </td>
+            <td>
+              Food
+            </td>
+            <td>
+              Gold
+            </td>
+          </thead>
+          <tbody>
+            <tr ng-repeat="row in rows" ng-controller="rowTemplateController">
+              <td>
+                <!--Unit-->
+                <select ng-change="calculate()" ng-model="model.unit">
+                  <option  ng-repeat="unit in unitList" value="{{unit}}">{{unit}}</option>
+                </select>
+              </td>
+              <!--Number of Facilities-->
+              <td>
+                <select ng-change="calculate()" ng-model="model.number">
+                  <option   ng-repeat="num in numbers" value="{{num}}">{{num}}</option>
+                </select>
+
+              </td>
+              <!--Villager Production-->
+
+              <td>
+                <select ng-change="calculate()" ng-model="model.vil">
+                  <option value="true">Yes</option>
+                  <option value="false">No</option>
+                </select>
+
+              </td>
+              <!-- number required-->
+              <td>
+                <!--wood-->
+                {{returnedCalcs.W}}
+              </td>
+              <td>
+                <!--food-->
+                {{returnedCalcs.F}}
+              </td>
+              <td>
+                <!--gold-->
+                {{returnedCalcs.G}}
+              </td>
+              <td>
+                <button ng-click="addRow()">Add Row</button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
