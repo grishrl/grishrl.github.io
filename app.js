@@ -1,7 +1,7 @@
 angular.module('uctc',[]);
 
 angular.module('uctc').controller('homeCtrl',function($scope, totalFactory){
-  $scope.rows = [1];
+  $scope.rows = [{}];
 
   $scope.$on('addRow',function(){
 
@@ -23,6 +23,10 @@ angular.module('uctc').controller('homeCtrl',function($scope, totalFactory){
     $scope.totals = totalsForScope;
   },true);
 
-
+$scope.reset = function(){
+  $scope.rows=undefined;
+  $scope.rows=[{}];
+  totalFactory.totalsArray=[];
+}
 
 });

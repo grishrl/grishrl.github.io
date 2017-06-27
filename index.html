@@ -31,8 +31,32 @@
 
   <body>
     <div class="container" ng-app='uctc'>
-      <div  ng-controller="homeCtrl">
+      <div class="row">
+        <div class="col-md-2">
 
+        </div>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-12">
+              <h1 class="text-center">Age of Empires 2</h1>
+
+            </div>
+          </div>          <div class="row">
+                      <div class="col-md-12">
+                        <h2 class="text-center">Unit Production Calculator</h2>
+                      </div>
+                    </div>
+        </div>
+        <div class="col-md-2">
+
+        </div>
+      </div>
+      <div  ng-controller="homeCtrl">
+        <div class="row">
+          <div class="col-md-12">
+            <button style="margin-top:10px" class="pull-right" ng-click="reset()">Reset</button>
+          </div>
+        </div>
           <table class="table">
             <thead>
               <td>
@@ -121,7 +145,7 @@
 
             </tbody>
           </table>
-      
+
 
       </div>
     </div>
