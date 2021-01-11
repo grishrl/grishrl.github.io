@@ -27,6 +27,7 @@ $scope.reset = function(){
   $scope.rows=undefined;
   $scope.rows=[{}];
   totalFactory.totalsArray=[];
+  totalFactory.totalsObject = {};
 }
 
 });

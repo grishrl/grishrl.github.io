@@ -20,7 +20,6 @@ angular.module('uctc').controller('rowTemplateController',function(constants, ca
   $scope.numbers = arrayToShow;
 
   $scope.addRow=function(){
-
     $scope.$emit('addRow');
   };
 
@@ -28,7 +27,7 @@ angular.module('uctc').controller('rowTemplateController',function(constants, ca
 
   $scope.calculate=function(ind){
 
-    var tempReturn = caLogic.requiredForUnit($scope.model)
+    var tempReturn = caLogic.requiredForUnit($scope.model, ind)
 
     $scope.returnedCalcs=tempReturn;
     
