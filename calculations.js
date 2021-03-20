@@ -35,9 +35,10 @@ angular.module('uctc').factory('caLogic', function (constants, totalFactory) {
         }else if(model.vil=='true' && model.unit!="Villager"){
           if (totalFactory.villagerRefresh()<=1){
             villPerResource["F"] += 7;
-            villPerResource["W"] += 3;
+            // villPerResource["W"] += 3;
           }
         }
+        villPerResource["W"] += Math.ceil(villPerResource["F"]/7)*3;
         totalFactory.totalObject[ind]=model;
         villPerResource.Unit = model.unit;
         return villPerResource;
