@@ -1,12 +1,12 @@
-angular.module('uctc').directive('rowTemplate',function(){
+angular.module('uctc').directive('rowTemplate',function($scope){
   var directive = {};
-   directive.templateUrl = 'rowTemplate.html';
-   directive.restrict = 'E';
-   directive.controller = 'rowTemplateController';
-   directive.controllerAs = 'ctrl';
+  directive.templateUrl = 'rowTemplate.html';
+  directive.restrict = 'E';
+  directive.controller = 'rowTemplateController';
+  directive.controllerAs = 'ctrl';
 
 
-       return directive;
+  return directive;
 });
 angular.module('uctc').controller('rowTemplateController',function(constants, caLogic, totalFactory, $scope){
   $scope.model={};
@@ -19,23 +19,26 @@ angular.module('uctc').controller('rowTemplateController',function(constants, ca
 
   $scope.numbers = arrayToShow;
 
-  $scope.addRow=function(){
-    $scope.$emit('addRow');
+  $scope.deleteRow = function(rowIndex) {
+    $scope.$emit('deleteRow', { rowIndex });
   };
 
   $scope.total = [];
 
-  $scope.calculate=function(ind){
-
-    var tempReturn = caLogic.requiredForUnit($scope.model, ind)
+  $scope.calculate=function(rowIndex){
+    var tempReturn = caLogic.requiredForUnit($scope.model, rowIndex)
 
     $scope.returnedCalcs=tempReturn;
     
-    if(totalFactory.totalsArray[ind]){
-      totalFactory.totalsArray[ind]=tempReturn;
+    if(totalFactory.totalsArray[rowIndex]){
+      totalFactory.totalsArray[rowIndex]=tempReturn;
     }else{
       totalFactory.totalsArray.push(tempReturn);
     }
   };
 
+  $scope.init=function({ id, model }, rowIndex) {
+    $scope.model = model;
+    $scope.calculate(rowIndex);
+  }
 });

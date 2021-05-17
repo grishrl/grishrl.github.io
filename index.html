@@ -41,21 +41,23 @@
               <h1 class="text-center">Age of Empires 2</h1>
 
             </div>
-          </div>          <div class="row">
-                      <div class="col-md-12">
-                        <h2 class="text-center">Unit Production Calculator</h2>
-                        <span class="text-center">Looking to complete info for new units in DE+ please reach out.</span
-                      </div>
-                    </div>
-        </div>
-        <div class="col-md-2">
+          </div>
+            <div class="row">
+              <div class="col-md-12">
+                <h2 class="text-center">Unit Production Calculator</h2>
+                <div class="text-center">Looking to complete info for new units in DE+ please reach out.</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2">
 
-        </div>
+          </div>
       </div>
       <div  ng-controller="homeCtrl">
         <div class="row">
           <div class="col-md-12">
             <button style="margin-top:10px" class="pull-right" ng-click="reset()">Reset</button>
+            <button style="margin-top:10px" class="pull-right" ng-click="shareLink()">Copy Permalink</button>
           </div>
         </div>
           <table class="table">
@@ -80,7 +82,7 @@
               </td>
             </thead>
             <tbody>
-              <tr ng-repeat="row in rows" ng-controller="rowTemplateController">
+              <tr ng-repeat="row in rows" ng-controller="rowTemplateController" ng-init="init(row, $index)">
                 <td>
                   <!--Unit-->
                   <select ng-change="calculate($index)" ng-model="model.unit">
@@ -117,7 +119,7 @@
                   {{returnedCalcs.G}}
                 </td>
                 <td>
-                  <button ng-click="addRow()">Add Row</button>
+                  <button ng-click="deleteRow($index)">Delete Row</button>
                 </td>
               </tr>
               <tr>
@@ -140,7 +142,7 @@
                   {{totals.g}}
                 </td>
                 <td>
-
+                  <button ng-click="addRow()">Add Row</button>
                 </td>
               </tr>
 
