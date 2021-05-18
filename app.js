@@ -35,6 +35,7 @@ angular.module('uctc').controller('homeCtrl',function($scope, totalFactory, cons
   });
 
   $scope.$on('deleteRow', function(event, { rowIndex }){
+    totalFactory.totalsArray.splice(rowIndex, 1);
     $scope.rows.splice(rowIndex, 1);
   });
 
