@@ -44,7 +44,7 @@
           </div>          <div class="row">
                       <div class="col-md-12">
                         <h2 class="text-center">Unit Production Calculator</h2>
-                        <span class="text-center">Looking to complete info for new units in DE+ please reach out.</span
+                        <div class="text-center">Looking to complete info for new units in DE+ please reach out.</div>
                       </div>
                     </div>
         </div>
@@ -54,7 +54,7 @@
       </div>
       <div  ng-controller="homeCtrl">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12" style="margin-top: 15px;">
             <button style="margin-top:10px" class="pull-right" ng-click="reset()">Reset</button>
           </div>
         </div>
@@ -146,8 +146,7 @@
 
             </tbody>
           </table>
-
-
+          <div style="margin-top:10px">Last update {{ lastUpdate }} from <a href="{{ source }}">{{ source }}</a></div>
       </div>
     </div>
   </body>

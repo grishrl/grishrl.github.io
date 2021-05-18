@@ -1,0 +1,17 @@
+{
+  "name": "units-updater",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "crawl": "node index.js",
+    "copy": "cp ./constants.js ../constants.js",
+    "start": "npm run crawl && npm run copy"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "x-ray": "^2.3.4"
+  }
+}
