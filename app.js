@@ -1,8 +1,10 @@
 angular.module('uctc',[]);
 
-angular.module('uctc').controller('homeCtrl',function($scope, totalFactory){
-  $scope.rows = [];
-  $scope.lastId = 0;
+angular.module('uctc').controller('homeCtrl',function($scope, totalFactory, constants){
+  $scope.rows = [{}];
+  $scope.source = constants.source;
+  $scope.lastUpdate = constants.lastUpdate;
+
   
   if (window.location.hash) {
     try {

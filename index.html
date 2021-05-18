@@ -41,21 +41,18 @@
               <h1 class="text-center">Age of Empires 2</h1>
 
             </div>
-          </div>
-            <div class="row">
-              <div class="col-md-12">
-                <h2 class="text-center">Unit Production Calculator</h2>
-                <div class="text-center">Looking to complete info for new units in DE+ please reach out.</div>
-              </div>
             </div>
-          </div>
+        </div>
+
+
+        
           <div class="col-md-2">
 
           </div>
       </div>
       <div  ng-controller="homeCtrl">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12" style="margin-top: 15px;">
             <button style="margin-top:10px" class="pull-right" ng-click="reset()">Reset</button>
             <button style="margin-top:10px" class="pull-right" ng-click="shareLink()">Copy Permalink</button>
           </div>
@@ -148,8 +145,7 @@
 
             </tbody>
           </table>
-
-
+          <div style="margin-top:10px">Last update {{ lastUpdate }} from <a href="{{ source }}">{{ source }}</a></div>
       </div>
     </div>
   </body>
