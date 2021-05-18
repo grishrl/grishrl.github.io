@@ -1,7 +1,7 @@
 angular.module('uctc',[]);
 
 angular.module('uctc').controller('homeCtrl',function($scope, totalFactory, constants){
-  $scope.rows = [{}];
+  $scope.rows = [];
   $scope.source = constants.source;
   $scope.lastUpdate = constants.lastUpdate;
 
